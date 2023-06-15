@@ -1,0 +1,367 @@
+@import "theme.light.css" (prefers-color-scheme: light);
+@import "theme.dark.css" (prefers-color-scheme: dark);
+@font-face {
+  font-family: "Sukyung";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105@1.1/Sukyung.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+$minheight: 2rem;
+$progressBarH: 1rem;
+$wrapper-padding-inline: 2rem;
+
+$bg: var() --bg;
+$bgVariant: var(--bgVariant);
+$txt: var(--txt);
+$surface-transperent: var(--surface-transparent);
+$surface: var(--surface);
+$onSurface: var(--onSurafce);
+$accent: var(--accent);
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.hide {
+  display: none;
+}
+
+html {
+  color-scheme: light dark;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui;
+  font-size: 16px;
+  line-height: 1.5;
+  color: $txt;
+}
+
+.wrapper {
+  max-width: calc(90ch + (2 * $wrapper-padding-inline));
+  margin-inline: auto;
+  padding-inline: 2rem;
+
+  min-height: max(100dvh, $minheight);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  //   background-color: aliceblue;
+}
+
+header {
+  text-align: center;
+  word-break: keep-all;
+  text-wrap: balance;
+}
+
+// section:nth-last-of-type(odd) {
+//   background-color: aqua;
+// }
+
+.stickywrapper {
+  display: grid;
+  grid-template-columns: 1fr fit-content(0);
+  grid-template-rows: 1fr;
+  position: relative;
+}
+
+main {
+  grid-column: 1 / span 2;
+  grid-row: 1;
+  z-index: 1;
+}
+
+aside {
+  position: sticky;
+  top: 0;
+  z-index: 3;
+  grid-column: 2;
+  grid-row: 1;
+  padding-inline: 1rem 1.5rem;
+  background-color: $surface-transperent;
+  backdrop-filter: blur(0.25rem);
+  width: fit-content;
+  height: max(100dvh, $minheight);
+  border-radius: 1rem 0 0 1rem;
+  font-size: 0.875rem;
+  ol {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 100%;
+    li {
+      font-weight: 600;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      text-transform: capitalize;
+      display: flex;
+      transition: color 150ms ease-out;
+      &::before {
+        content: " ";
+        width: 1rem;
+        height: 1rem;
+        margin-top: 2.5px;
+        border-radius: 99999px;
+        border: 0.125em solid white;
+        transition: border-color 150ms ease-out;
+      }
+
+      &:hover {
+        color: $accent;
+        &::before {
+          border-color: $accent;
+        }
+      }
+
+      &.pressed {
+        color: $accent;
+
+        &::before {
+          background-color: $accent;
+          border-color: $accent;
+        }
+      }
+    }
+  }
+  a {
+    text-decoration: none;
+    color: white;
+    cursor: pointer;
+  }
+}
+
+.progressBar {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  background-color: $surface;
+  width: 100%;
+  height: $progressBarH;
+  grid-column: 1 / span 2;
+  grid-row: 1;
+  .indicator {
+    position: absolute;
+    inset: 0 0 0 0;
+    // transform: scaleX(100%);
+    transform-origin: left;
+    background-color: $accent;
+  }
+}
+
+#section3 {
+  .wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    flex-direction: column;
+    justify-content: end;
+    align-items: center;
+    .image {
+      grid-column: 1fr;
+      margin: 0;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+}
+
+#section15 {
+  background-color: black;
+  color: white;
+  text-align: center;
+  font-size: 30px;
+  font-weight: 900;
+}
+
+#section16 {
+  .glitch-effect {
+    color: rgb(209, 209, 209);
+    font-weight: 800;
+  }
+  .forgot {
+    opacity: 0.1;
+    text-decoration: line-through;
+  }
+}
+#section17 {
+  text-align: center;
+  font-weight: 900;
+}
+
+#section18 {
+  p {
+    font-family: "Sukyung";
+    color: gray;
+  }
+}
+
+#section19 {
+  background-color: black;
+  color: white;
+  text-align: center;
+}
+
+#section21 {
+  text-align: center;
+}
+
+footer {
+  .wrapper {
+    min-height: max(100dvh, $minheight);
+  }
+}
+
+@media (width < 1080px) {
+  .stickywrapper {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto 1fr;
+  }
+
+  main {
+    grid-column: 1;
+    grid-row: 3;
+  }
+
+  aside {
+    top: $progressBarH;
+    grid-column: 1;
+    grid-row: 1;
+    padding-inline: unset;
+    padding-block: 1rem;
+    width: 100%;
+    height: fit-content;
+    border-radius: 0 0 1rem 1rem;
+    overflow: scroll;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    ol {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      gap: 3rem;
+
+      a:first-of-type li {
+        margin-left: $wrapper-padding-inline;
+      }
+
+      a:last-of-type li {
+        margin-right: $wrapper-padding-inline;
+      }
+    }
+  }
+
+  .progressBar {
+    grid-column: 1;
+    grid-row: 1;
+  }
+}
+
+@media (width < 960px) {
+  aside {
+    aside {
+      top: $progressBarH;
+      grid-column: 1;
+      grid-row: 3;
+      padding-inline: unset;
+      padding-block: 1rem;
+      width: 100%;
+      height: fit-content;
+      border-radius: 0 0 1rem 1rem;
+      overflow: scroll;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+
+      ol {
+        justify-content: flex-start;
+
+        a:first-of-type li {
+          margin-left: $wrapper-padding-inline;
+        }
+
+        a:last-of-type li {
+          margin-right: $wrapper-padding-inline;
+        }
+      }
+    }
+  }
+  #section3 {
+    .wrapper {
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr;
+      flex-direction: column;
+      justify-content: end;
+      align-items: center;
+
+      .image {
+        grid-column: 1fr;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+    }
+  }
+}
+
+#section5 {
+  .container {
+    position: relative;
+  }
+  .container::after {
+    content: "";
+    background-image: url("../image/교실.jpg");
+    background-size: cover;
+    opacity: 0.2;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+  }
+}
+
+.erase {
+  color: red;
+  font-weight: 700;
+  text-decoration: line-through;
+}
+
+.bad {
+  text-decoration: line-through;
+  color: rgb(165, 165, 165);
+}
+
+footer {
+  background-color: rgb(220, 220, 220);
+  text-align: center;
+  justify-content: center;
+  gap: 1rem;
+}
