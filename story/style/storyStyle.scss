@@ -20,6 +20,10 @@ $surface: var(--surface);
 $onSurface: var(--onSurafce);
 $accent: var(--accent);
 
+::-webkit-scrollbar {
+  display: none;
+}
+
 *,
 *::before,
 *::after {
@@ -41,6 +45,7 @@ body {
   font-size: 16px;
   line-height: 1.5;
   color: $txt;
+  overflow-x: hidden;
 }
 
 .wrapper {
