@@ -40,12 +40,12 @@ html {
 }
 
 body {
+  font-size: 18px;
   margin: 0;
   font-family: system-ui;
-  font-size: 16px;
   line-height: 1.5;
   color: $txt;
-  overflow-x: hidden;
+  // overflow-x: hidden;
 }
 
 .wrapper {
@@ -90,13 +90,14 @@ aside {
   z-index: 3;
   grid-column: 2;
   grid-row: 1;
-  padding-inline: 1rem 1.5rem;
+  padding-inline: 2rem 2rem;
   background-color: $surface-transperent;
   backdrop-filter: blur(0.25rem);
   width: fit-content;
   height: max(100dvh, $minheight);
   border-radius: 1rem 0 0 1rem;
   font-size: 0.875rem;
+  word-break: keep-all;
   ol {
     margin: 0;
     padding: 0;
@@ -113,15 +114,15 @@ aside {
       text-transform: capitalize;
       display: flex;
       transition: color 150ms ease-out;
-      &::before {
-        content: " ";
-        width: 1rem;
-        height: 1rem;
-        margin-top: 2.5px;
-        border-radius: 99999px;
-        border: 0.125em solid white;
-        transition: border-color 150ms ease-out;
-      }
+      // &::before {
+      //   content: " ";
+      //   width: 1rem;
+      //   height: 1rem;
+      //   margin-top: 2.5px;
+      //   border-radius: 99999px;
+      //   border: 0.125em solid white;
+      //   transition: border-color 150ms ease-out;
+      // }
 
       &:hover {
         color: $accent;
@@ -144,6 +145,9 @@ aside {
     text-decoration: none;
     color: white;
     cursor: pointer;
+    &.pressed {
+      background-color: $accent;
+    }
   }
 }
 
@@ -212,6 +216,7 @@ aside {
   p {
     font-family: "Sukyung";
     color: gray;
+    font-size: 24px;
   }
 }
 

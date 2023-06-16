@@ -1,4 +1,12 @@
 @charset "UTF-8";
+@import "theme.light.css" (prefers-color-scheme: light);
+@import "theme.dark.css" (prefers-color-scheme: dark);
+@font-face {
+  font-family: "Sukyung";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105@1.1/Sukyung.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
 #section1 {
   width: 100%;
 }
@@ -44,6 +52,7 @@
   background-color: rgb(218, 218, 218);
   border: 1px solid rgb(168, 168, 168);
   padding: 1rem;
+  color: black;
 }
 
 #section12 {
@@ -62,6 +71,7 @@
   background-color: rgb(188, 188, 188);
   border: 1.5px solid rgb(107, 107, 107);
   padding: 1rem;
+  color: black;
 }
 
 #section14 {
@@ -80,6 +90,7 @@
   background-color: rgb(129, 129, 129);
   border: 2px solid rgb(53, 53, 53);
   padding: 1rem;
+  color: black;
 }
 
 #section20 {
@@ -359,7 +370,7 @@
 }
 
 #section13 p {
-  border: 2px rgb(59, 59, 59) solid;
+  border: 2px var(--txt) solid;
 }
 
 @keyframes heartbeat {

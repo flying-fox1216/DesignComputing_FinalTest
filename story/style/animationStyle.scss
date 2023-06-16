@@ -1,3 +1,25 @@
+@import "theme.light.css" (prefers-color-scheme: light);
+@import "theme.dark.css" (prefers-color-scheme: dark);
+@font-face {
+  font-family: "Sukyung";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105@1.1/Sukyung.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+$minheight: 2rem;
+$progressBarH: 1rem;
+$wrapper-padding-inline: 2rem;
+
+$bg: var() --bg;
+$bgVariant: var(--bgVariant);
+$txt: var(--txt);
+$surface-transperent: var(--surface-transparent);
+$surface: var(--surface);
+$onSurface: var(--onSurafce);
+$accent: var(--accent);
+
 #section1 {
   width: 100%;
   .container {
@@ -52,6 +74,7 @@
     background-color: rgb(218, 218, 218);
     border: 1px solid rgb(168, 168, 168);
     padding: 1rem;
+    color: black;
   }
 }
 
@@ -74,6 +97,7 @@
     background-color: rgb(188, 188, 188);
     border: 1.5px solid rgb(107, 107, 107);
     padding: 1rem;
+    color: black;
   }
 }
 
@@ -96,6 +120,7 @@
     background-color: rgb(129, 129, 129);
     border: 2px solid rgb(53, 53, 53);
     padding: 1rem;
+    color: black;
   }
 }
 
@@ -387,7 +412,7 @@
 
 #section13 {
   p {
-    border: 2px rgb(59, 59, 59) solid;
+    border: 2px $txt solid;
     // padding: 1rem;
   }
 }
